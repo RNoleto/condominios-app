@@ -6,6 +6,14 @@
       <div class="w-full max-w-lg">
         <div class="leading-loose">
           <form class="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl">
+            <router-link to="/">
+              <div class="flex justify-center lg:flex-1">
+                <a href="#" class="-m-1.5 p-1.5">
+                  <span class="sr-only">Condominios</span>
+                  <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                </a>
+              </div>
+            </router-link>
             <p class="text-white font-medium text-center text-lg font-bold">
               LOGIN
             </p>

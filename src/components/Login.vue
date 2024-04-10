@@ -5,7 +5,7 @@
     <div class="container mx-auto h-full flex flex-1 justify-center items-center">
       <div class="w-full max-w-lg">
         <div class="leading-loose">
-          <form class="max-w-sm m-4 p-10 bg-white bg-opacity-25 rounded shadow-xl">
+          <form class="max-w-sm m-4 p-10 bg-black bg-opacity-25 rounded shadow-xl">
             <router-link to="/">
               <div class="flex justify-center lg:flex-1">
                 <a href="#" class="-m-1.5 p-1.5">
@@ -37,7 +37,7 @@
                 href="#">Esqueceu a senha ?</a>
             </div>
             <div class="text-center">
-              <a class="inline-block right-0 align-baseline font-light text-sm text-500 hover:text-red-400">
+              <a class="inline-block right-0 align-baseline font-light text-sm text-white text-500 hover:text-red-400">
                 <router-link to="/register">Criar uma conta</router-link>
               </a>
             </div>

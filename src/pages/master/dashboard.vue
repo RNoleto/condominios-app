@@ -15,7 +15,7 @@
         >
           <div class="flex flex-col justify-between space-y-[10px]">
             <router-link
-              to="/home"
+              to="/resume"
               class="inline-flex relative items-center py-[10px] px-[10px] w-full text-sm font-medium rounded-md border-gray-200 hover:bg-gray-200 hover:text-gray-700"
             >
               <svg

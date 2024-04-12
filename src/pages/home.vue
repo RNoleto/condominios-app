@@ -5,7 +5,7 @@
       <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
         <div class="hidden sm:mb-8 sm:flex sm:justify-center">
           <div
-            class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+            class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-indigo-900/10 hover:ring-indigo-900/20">
             Conheça um pouco mais sobre nossa proposta. <a href="#" class="font-semibold text-indigo-600"><span
                 class="absolute inset-0" aria-hidden="true"></span>Leia mais <span aria-hidden="true">&rarr;</span></a>
           </div>

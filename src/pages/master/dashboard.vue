@@ -5,7 +5,7 @@
       <div class="h-[50px] bg-gray-900 flex justify-start items-center">
         <div class="px-[20px]">
           <router-link to="/">
-            <h3 class="font-bold text-xl">Admin Dashboard</h3>
+            <h3 class="font-bold text-xl">Dashboard</h3>
           </router-link>
         </div>
       </div>

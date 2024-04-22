@@ -1,81 +1,137 @@
 <template>
-  <div>Essa é meu componente de usuarios</div>
-  <!-- Primeira Linha -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-    <!-- Card 1 -->
-    <card>
-      <template #title>
-        <!-- Conteúdo personalizado do título -->
-        <div>
-          <div class="text-2xl font-semibold">{{ customTitle }}</div>
-          <div class="text-sm font-medium text-gray-400">{{ customSubtitle }}</div>
-        </div>
-      </template>
-      <template #body>
-        <!-- Conteúdo personalizado do corpo -->
-        <a href="/gebruikers" class="text-[#f84525] font-medium text-sm hover:text-red-800" target="_blank">{{
-          customLinkText }}</a>
-      </template>
-    </card>
-    <!-- Card 2 -->
-    <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
-      <div class="flex justify-between mb-4">
-        <div>
-          <div class="flex items-center mb-1">
-            <div class="text-2xl font-semibold">100</div>
-            <div class="p-1 rounded bg-emerald-500/10 text-emerald-500 text-[12px] font-semibold leading-none ml-2">
-              +30%
-            </div>
-          </div>
-          <div class="text-sm font-medium text-gray-400">Automoveis</div>
-        </div>
-        <div class="dropdown">
-          <button type="button" class="dropdown-toggle text-gray-400 hover:text-gray-600">
-            <i class="ri-more-fill"></i>
-          </button>
-          <ul
-            class="dropdown-menu shadow-md shadow-black/5 z-30 hidden py-1.5 rounded-md bg-white border border-gray-100 w-full max-w-[140px]"
-            data-popper-id="popper-4" data-popper-placement="bottom-end" style="
-              position: absolute;
-              inset: 0px 0px auto auto;
-              margin: 0px;
-              transform: translate(-535px, 149px);
-            ">
-            <li>
-              <a class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                target="_blank">Profile</a>
-            </li>
-            <li>
-              <a class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                target="_blank">Settings</a>
-            </li>
-            <li>
-              <a class="flex items-center text-[13px] py-1.5 px-4 text-gray-600 hover:text-blue-500 hover:bg-gray-50"
-                target="_blank">Logout</a>
-            </li>
-          </ul>
-        </div>
+  <div class="mt-8">
+  </div>
+  <div class="flex flex-col mt-8">
+    <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+      <div class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+        <table class="min-w-full">
+          <thead>
+            <tr>
+              <th
+                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                Nome</th>
+              <th
+                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                Titulo</th>
+              <th
+                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                Status</th>
+              <th
+                class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                Categoria</th>
+              <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
+            </tr>
+          </thead>
+          <tbody class="bg-white">
+            <tr>
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10 rounded-full"
+                      src="https://ovicio.com.br/wp-content/uploads/2023/03/20230324-ovicio-john-wick-duracao-555x555.jpg"
+                      alt="" />
+                  </div>
+
+                  <div class="ml-4">
+                    <div class="text-sm leading-5 font-medium text-gray-900">Jhon Wick</div>
+                    <div class="text-sm leading-5 text-gray-500">jhon@wick.com</div>
+                  </div>
+                </div>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="text-sm leading-5 text-gray-900">Software Engineer</div>
+                <div class="text-sm leading-5 text-gray-500">Web Dev Fullstack</div>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span
+                  class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+                Proprietario
+              </td>
+
+              <td
+                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+              </td>
+
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10 rounded-full"
+                      src="https://miro.medium.com/v2/resize:fit:1358/0*c0fhyexwkpHRy1pB.jpg" alt="" />
+                  </div>
+
+                  <div class="ml-4">
+                    <div class="text-sm leading-5 font-medium text-gray-900">Mr. Ninguém</div>
+                    <div class="text-sm leading-5 text-gray-500">nobody@email.com</div>
+                  </div>
+                </div>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="text-sm leading-5 text-gray-900">Software Engineer</div>
+                <div class="text-sm leading-5 text-gray-500">Web dev</div>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span
+                  class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Standby</span>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">Product
+                Owner
+              </td>
+
+              <td
+                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+              </td>
+
+            </tr>
+            <tr>
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10 rounded-full" src="https://i.ytimg.com/vi/Ez0h5d3_w3k/maxresdefault.jpg"
+                      alt="" />
+                  </div>
+
+                  <div class="ml-4">
+                    <div class="text-sm leading-5 font-medium text-gray-900">Duncan Vizla</div>
+                    <div class="text-sm leading-5 text-gray-500">polar@assassin.com</div>
+                  </div>
+                </div>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <div class="text-sm leading-5 text-gray-900">Software Engineer</div>
+                <div class="text-sm leading-5 text-gray-500">Dev Backend</div>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+                <span
+                  class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Standby</span>
+              </td>
+
+              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">Team
+                Leader
+              </td>
+
+              <td
+                class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
+                <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <a href="/dierenartsen" class="text-[#f84525] font-medium text-sm hover:text-red-800" target="_blank">Ver
-        detalhes</a>
     </div>
   </div>
 </template>
-
-<script>
-import card from '../components/card.vue';
-export default {
-  components: {
-    card
-  },
-  data() {
-    return {
-      card: {
-      },
-      customTitle: '112',
-      customSubtitle: "Imoveis Totais",
-      customLinkText: 'Ver detalhes personalizado',
-    };
-  }
-};
-</script>

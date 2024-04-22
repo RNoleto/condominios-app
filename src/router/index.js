@@ -6,6 +6,9 @@ import home from '../pages/home.vue';
 //Componentes
 import login from '../components/Login.vue';
 import register from '../components/Register.vue';
+import UserEdit from '../components/UserEdit.vue';
+
+
 // Imports para Dashboard
 import dashboard from '../pages/master/dashboard.vue';
 import usuarios from '../pages/usuarios.vue';
@@ -41,6 +44,12 @@ const routes = [
         name: 'usuarios',
         path: '/usuarios',
         component: usuarios
+      },
+      {
+        name: 'UserEdit',
+        path: '/editar-usuario/:id',
+        component: UserEdit,
+        props: true,
       },
       {
         name: 'banners',

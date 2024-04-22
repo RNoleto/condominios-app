@@ -9,7 +9,7 @@ import register from '../components/Register.vue';
 // Imports para Dashboard
 import dashboard from '../pages/master/dashboard.vue';
 import automoveis from '../pages/automoveis.vue';
-import resume from '../pages/resume.vue';
+import usuarios from '../pages/usuarios.vue';
 
 
 
@@ -36,9 +36,9 @@ const routes = [
     component: dashboard,
     children: [
       {
-        name: 'resume',
-        path: '/resume',
-        component: resume
+        name: 'usuarios',
+        path: '/usuarios',
+        component: usuarios
       },
       {
         name: 'automoveis',

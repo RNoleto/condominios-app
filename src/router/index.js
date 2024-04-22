@@ -8,7 +8,7 @@ import login from '../components/Login.vue';
 import register from '../components/Register.vue';
 // Imports para Dashboard
 import dashboard from '../pages/master/dashboard.vue';
-import automoveis from '../pages/automoveis.vue';
+import banners from '../pages/banners.vue';
 import usuarios from '../pages/usuarios.vue';
 
 
@@ -41,9 +41,9 @@ const routes = [
         component: usuarios
       },
       {
-        name: 'automoveis',
-        path: '/automoveis',
-        component: automoveis
+        name: 'banners',
+        path: '/banners',
+        component: banners
       }
     ]
   }

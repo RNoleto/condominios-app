@@ -1,6 +1,6 @@
 <template>
   <div>
-    Esse é meu automoveis
+    <h1>Banners</h1>
   </div>
 </template>
 
@@ -10,6 +10,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

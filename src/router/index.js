@@ -8,8 +8,10 @@ import login from '../components/Login.vue';
 import register from '../components/Register.vue';
 // Imports para Dashboard
 import dashboard from '../pages/master/dashboard.vue';
-import banners from '../pages/banners.vue';
 import usuarios from '../pages/usuarios.vue';
+import banners from '../pages/banners.vue';
+import post from '../pages/post.vue';
+import category from '../pages/category.vue';
 
 
 
@@ -44,6 +46,16 @@ const routes = [
         name: 'banners',
         path: '/banners',
         component: banners
+      },
+      {
+        name: 'post',
+        path: '/post',
+        component: post
+      },
+      {
+        name: 'category',
+        path: '/category',
+        component: category
       }
     ]
   }

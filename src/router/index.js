@@ -6,7 +6,6 @@ import home from '../pages/home.vue';
 //Componentes
 import login from '../components/Login.vue';
 import register from '../components/Register.vue';
-import UserEdit from '../components/UserEdit.vue';
 
 
 // Imports para Dashboard
@@ -15,6 +14,7 @@ import usuarios from '../pages/usuarios.vue';
 import banners from '../pages/banners.vue';
 import post from '../pages/post.vue';
 import category from '../pages/category.vue';
+import UserEdit from '../pages/UserEdit.vue';
 
 
 

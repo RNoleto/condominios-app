@@ -36,21 +36,22 @@
                 </div>
               </td>
               <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                <div class="text-sm leading-5 text-gray-900">{{ user.title }}</div>
-                <div class="text-sm leading-5 text-gray-500">{{ user.subtitle }}</div>
+                <div class="text-sm text-left leading-5 text-gray-900">{{ user.title }}</div>
+                <div class="text-sm text-left leading-5 text-gray-500">{{ user.subtitle }}</div>
               </td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+              <td class="px-6 text-left py-4 whitespace-no-wrap border-b border-gray-200">
                 <span v-if="user.status === 'Active'"
                   class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{
                     user.status }}</span>
                 <span v-else-if="user.status === 'Standby'"
-                  class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">{{
+                  class="px-2 text-left inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">{{
                     user.status }}</span>
                 <span v-else
-                  class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">{{
+                  class="px-2 text-left inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">{{
                     user.status }}</span>
               </td>
-              <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+              <td
+                class="px-6 text-left py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                 {{ user.category }}
               </td>
               <td

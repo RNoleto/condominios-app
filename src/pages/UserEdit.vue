@@ -77,7 +77,7 @@ export default {
         avatar: 'https://ovicio.com.br/wp-content/uploads/2023/03/20230324-ovicio-john-wick-duracao-555x555.jpg',
         title: 'Software Engineer',
         subtitle: 'Web Dev Fullstack',
-        status: 'Active',
+        status: 'Standby',
         category: 'Proprietario'
       }
     };

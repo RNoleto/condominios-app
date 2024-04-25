@@ -43,7 +43,7 @@
                 <span v-if="user.status === 'Active'"
                   class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{
                     user.status }}</span>
-                <span v-else-if="user.status === 'Standby'"
+                <span v-else-if="user.status === 'Inactive'"
                   class="px-2 text-left inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">{{
                     user.status }}</span>
                 <span v-else
@@ -89,7 +89,7 @@ export default {
           avatar: 'https://miro.medium.com/v2/resize:fit:1358/0*c0fhyexwkpHRy1pB.jpg',
           title: 'Software Engineer',
           subtitle: 'Tester',
-          status: 'standby',
+          status: 'Inactive',
           category: 'Freelancer'
         },
         {
@@ -99,7 +99,7 @@ export default {
           avatar: 'https://i.ytimg.com/vi/Ez0h5d3_w3k/maxresdefault.jpg',
           title: 'Software Engineer',
           subtitle: 'Web Dev Backend',
-          status: 'Active',
+          status: 'Standby',
           category: 'Freelancer'
         }
       ]

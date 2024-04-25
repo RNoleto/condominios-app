@@ -26,9 +26,15 @@
             class="block w-full h-72 object-cover transition duration-300 transform group-hover:scale-105"
             alt="Banner Image">
           <div
-            class="absolute inset-0 flex flex-col justify-end p-4 bg-gray-900 bg-opacity-70 text-white transition duration-300 opacity-0 group-hover:opacity-100">
+            class="flex absolute inset-0 flex flex-col justify-end p-4 bg-gray-900 bg-opacity-70 text-white transition duration-300 opacity-0 group-hover:opacity-100">
             <h1 class="text-lg font-bold">{{ banner.title }}</h1>
-            <h2 class="text-sm">{{ banner.status }}</h2>
+            <span
+              class="w-max px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+              v-if="banner.status === 'Active'">{{
+                banner.status }}</span>
+            <span
+              class="w-max px-2 text-left inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+              v-if="banner.status === 'Inactive'">{{ banner.status }}</span>
           </div>
         </div>
         <div class="flex justify-between mt-2">
@@ -89,7 +95,7 @@ export default {
           id: 3,
           title: "Titulo Banner 3",
           imageSrc: "https://images.unsplash.com/photo-1450778869180-41d0601e046e?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-          status: "Active"
+          status: "Inactive"
         }
       ]
     };

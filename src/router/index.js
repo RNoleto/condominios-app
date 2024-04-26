@@ -15,6 +15,7 @@ import banners from '../pages/banners.vue';
 import post from '../pages/post.vue';
 import category from '../pages/category.vue';
 import UserEdit from '../pages/UserEdit.vue';
+import BannerEdit from '../pages/BannerEdit.vue';
 
 
 
@@ -55,6 +56,11 @@ const routes = [
         name: 'banners',
         path: '/banners',
         component: banners
+      },
+      {
+        name: 'BannerEdit',
+        path: '/editar-banner/:id',
+        component: BannerEdit
       },
       {
         name: 'post',

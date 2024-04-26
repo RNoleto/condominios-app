@@ -16,6 +16,7 @@ import post from '../pages/post.vue';
 import category from '../pages/category.vue';
 import UserEdit from '../pages/UserEdit.vue';
 import BannerEdit from '../pages/BannerEdit.vue';
+import CreatePost from '../pages/CreatePost.vue';
 
 
 
@@ -61,6 +62,11 @@ const routes = [
         name: 'BannerEdit',
         path: '/editar-banner/:id',
         component: BannerEdit
+      },
+      {
+        name: 'CreatePost',
+        path: '/novo-post',
+        component: CreatePost
       },
       {
         name: 'post',

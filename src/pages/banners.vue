@@ -42,8 +42,10 @@
         </div>
         <div class="flex justify-between mt-2">
           <p class="text-gray-400"> {{ banner.title }}</p>
-          <button @click="editBanner(banner.id)"
-            class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Editar</button>
+          <router-link class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+            :to="{ name: 'BannerEdit', params: { id: banner.id } }">
+            Editar
+          </router-link>
         </div>
       </div>
     </div>
@@ -133,6 +135,11 @@ export default {
       } else {
         return 0; // Retorna 0 se o título não corresponder a nenhum dos casos acima
       }
+    },
+    editBanner(id) {
+      // Definir o banner selecionado com base no ID passado
+      const selectedBanner = this.banners.find(banner => banner.id === id);
+      this.$router.push({ name: 'BannerEdit', params: { id }, state: { banner: selectedBanner } });
     }
   }
 };

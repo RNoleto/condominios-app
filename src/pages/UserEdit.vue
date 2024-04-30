@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-lg mx-auto mt-10">
+  <div v-if="editedUser" class="max-w-lg mx-auto mt-10">
     <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div class="mb-4 flex items-center justify-center">
         <div class="flex items-center">
@@ -64,23 +64,53 @@
       </div>
     </div>
   </div>
+  <div v-else>
+    <p>Nenhum usuario encontrado</p>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      editedUser: {
-        id: 1,
-        name: 'Jhon Wick',
-        email: 'jhon@wick.com',
-        avatar: 'https://ovicio.com.br/wp-content/uploads/2023/03/20230324-ovicio-john-wick-duracao-555x555.jpg',
-        title: 'Software Engineer',
-        subtitle: 'Web Dev Fullstack',
-        status: 'Standby',
-        category: 'Proprietario'
-      }
+      editedUser: null,
+      userData: [
+        {
+          id: 1,
+          name: 'Jhon Wick',
+          email: 'jhon@wick.com',
+          avatar: 'https://ovicio.com.br/wp-content/uploads/2023/03/20230324-ovicio-john-wick-duracao-555x555.jpg',
+          title: 'Software Engineer',
+          subtitle: 'Web Dev Fullstack',
+          status: 'Standby',
+          category: 'Proprietario'
+        },
+        {
+          id: 2,
+          name: 'Mr. Ninguém',
+          email: 'nobody@mail.com',
+          avatar: 'https://miro.medium.com/v2/resize:fit:1358/0*c0fhyexwkpHRy1pB.jpg',
+          title: 'Software Engineer',
+          subtitle: 'Tester',
+          status: 'Inactive',
+          category: 'Freelancer'
+        },
+        {
+          id: 3,
+          name: 'Duncan Vizla',
+          email: 'polar@assassin.com',
+          avatar: 'https://i.ytimg.com/vi/Ez0h5d3_w3k/maxresdefault.jpg',
+          title: 'Software Engineer',
+          subtitle: 'Web Dev Backend',
+          status: 'Standby',
+          category: 'Freelancer'
+        }
+      ]
     };
+  },
+  created() {
+    const userId = parseInt(this.$route.params.id);
+    this.editedUser = this.userData.find(user => user.id === userId);
   },
   methods: {
     saveChanges() {

@@ -2,10 +2,11 @@
   <div>
     <div class="my-2">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <card v-for="card in cards" :key="card.id" class="w-full">
+        <card v-for="card in cards" :key="card.id" class="w-full"
+          :class="{ 'bg-blue-100': card.title === 'Total de Banners', 'bg-green-100': card.title === 'Total de Banners Ativos', 'bg-gray-100': card.title === 'Total de Banners Inativos' }">
           <template #title>
             <div class="text-2xl font-semibold">
-              {{ card.title }} {{ computeBannerCount(card.title) }}
+              {{ card.title }} - {{ computeBannerCount(card.title) }}
             </div>
             <div class="text-sm font-medium text-gray-400">
               {{ card.subtitle }}

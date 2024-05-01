@@ -65,7 +65,7 @@ const routes = [
       },
       {
         name: 'CreatePost',
-        path: '/novo-post',
+        path: '/editar-post/:id',
         component: CreatePost
       },
       {

@@ -1,55 +1,54 @@
 <template>
-  <div>
-    <div class="my-2">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <card v-for="card in cards" :key="card.id" class="w-full"
-          :class="{ 'bg-blue-100': card.title === 'Total de Banners', 'bg-green-100': card.title === 'Total de Banners Ativos', 'bg-gray-100': card.title === 'Total de Banners Inativos' }">
-          <template #title>
-            <div class="text-2xl font-semibold">
-              {{ card.title }} - {{ computeBannerCount(card.title) }}
-            </div>
-            <div class="text-sm font-medium text-gray-400">
-              {{ card.subtitle }}
-            </div>
-          </template>
-          <template #body>
-            <a :href="card.link" class="text-[#f84525] font-medium text-sm hover:text-red-800" target="_blank">
-              {{ card.linkText }}
-            </a>
-          </template>
-        </card>
-      </div>
-    </div>
 
-
-    <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-      <div v-for="banner in banners" :key="banner.id" class="m-2">
-        <div class="group relative rounded-lg overflow-hidden border border-gray-200 hover:border-gray-400 shadow-md">
-          <img :src="banner.imageSrc"
-            class="block w-full h-32 object-cover transition duration-300 transform group-hover:scale-105"
-            alt="Banner Image">
-          <div
-            class="flex absolute inset-0 flex flex-col justify-end p-4 bg-gray-900 bg-opacity-70 text-white transition duration-300 opacity-0 group-hover:opacity-100">
-            <h1 class="text-lg font-bold">{{ banner.title }}</h1>
-            <span
-              class="w-max px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-              v-if="banner.status === 'Active'">{{
-                banner.status }}</span>
-            <span
-              class="w-max px-2 text-left inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
-              v-if="banner.status === 'Inactive'">{{ banner.status }}</span>
+  <div class="my-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <card v-for="card in cards" :key="card.id" class="w-full"
+        :class="{ 'bg-blue-100': card.title === 'Total de Banners', 'bg-green-100': card.title === 'Total de Banners Ativos', 'bg-gray-100': card.title === 'Total de Banners Inativos' }">
+        <template #title>
+          <div class="text-2xl font-semibold">
+            {{ card.title }} - {{ computeBannerCount(card.title) }}
           </div>
+          <div class="text-sm font-medium text-gray-400">
+            {{ card.subtitle }}
+          </div>
+        </template>
+        <template #body>
+          <a :href="card.link" class="text-[#f84525] font-medium text-sm hover:text-red-800" target="_blank">
+            {{ card.linkText }}
+          </a>
+        </template>
+      </card>
+    </div>
+  </div>
+
+
+  <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+    <div v-for="banner in banners" :key="banner.id" class="m-2">
+      <div class="group relative rounded-lg overflow-hidden border border-gray-200 hover:border-gray-400 shadow-md">
+        <img :src="banner.imageSrc"
+          class="block w-full h-32 object-cover transition duration-300 transform group-hover:scale-105"
+          alt="Banner Image">
+        <div
+          class="flex absolute inset-0 flex flex-col justify-end p-4 bg-gray-900 bg-opacity-70 text-white transition duration-300 opacity-0 group-hover:opacity-100">
+          <h1 class="text-lg font-bold">{{ banner.title }}</h1>
+          <span class="w-max px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+            v-if="banner.status === 'Active'">{{
+              banner.status }}</span>
+          <span
+            class="w-max px-2 text-left inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800"
+            v-if="banner.status === 'Inactive'">{{ banner.status }}</span>
         </div>
-        <div class="flex justify-between mt-2">
-          <p class="text-gray-400"> {{ banner.title }}</p>
-          <router-link class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
-            :to="{ name: 'BannerEdit', params: { id: banner.id } }">
-            Editar
-          </router-link>
-        </div>
+      </div>
+      <div class="flex justify-between mt-2">
+        <p class="text-gray-400"> {{ banner.title }}</p>
+        <router-link class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+          :to="{ name: 'BannerEdit', params: { id: banner.id } }">
+          Editar
+        </router-link>
       </div>
     </div>
   </div>
+
 </template>
 
 <script>

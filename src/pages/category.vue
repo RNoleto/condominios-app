@@ -13,15 +13,16 @@
       </div>
     </div>
 
-    <input type="text" v-model="newCategoryName" placeholder="Nova categoria">
+    <input class="rounded py-1" type="text" v-model="newCategoryName" placeholder="Nova categoria">
     <button @click="addCategory"
       class="px-2 py-1 text-center bg-blue-500 text-white rounded hover:bg-blue-600 ml-5">Adicionar</button>
   </div>
-  <div>
+  <div class="mt-3">
     <h2 class="text-xl font-semibold mb-4">Lista de Categorias</h2>
     <ul class="flex">
       <li v-for="category in categories" :key="category.id">
-        <span class="cursor-pointer border text-left px-2 text-sm leading-5 font-semibold rounded-full m-2"
+        <span :class="category.color"
+          class="cursor-pointer border text-left px-2 py-1 text-sm leading-5 font-semibold rounded-full m-2"
           @click="openEditModal(category)">{{ category.name }}</span>
       </li>
     </ul>
@@ -36,6 +37,8 @@ export default {
         { id: 1, name: 'Tecnologia', color: 'bg-blue-100 text-blue-800' },
         { id: 2, name: 'Saúde', color: 'bg-red-100 text-red-800' },
         { id: 3, name: 'Esporte', color: 'bg-green-100 text-green-800' },
+        { id: 4, name: 'Direito', color: 'bg-pink-100 text-pink-800' },
+        { id: 5, name: 'Politica', color: 'bg-orange-100 text-orange-800' },
       ],
       newCategoryName: '',
       editModalOpen: false,

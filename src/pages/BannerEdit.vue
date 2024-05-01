@@ -1,6 +1,5 @@
 <template>
-  Tela de edição de banner
-  <div class="mx-auto mt-10">
+  <div class="mx-auto mt-5">
     <div v-if="selectedBanner" class="m-2">
       <div class="group relative rounded-lg overflow-hidden border border-gray-200 hover:border-gray-400 shadow-md">
         <label for="bannerImage" class="block w-full h-64 cursor-pointer">
@@ -20,8 +19,8 @@
             v-else>{{ selectedBanner.status }}</span>
         </div>
       </div>
-      <div class="justify-between mt-2">
-        <label class="text-gray-700 text-sm font-bold mb-2" for="title">Título:</label>
+      <div class="justify-between mt-4 mb-4">
+        <label class="flex text-gray-700 text-sm font-bold mb-2" for="title">Título:</label>
         <input
           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           id="title" type="text" v-model="selectedBanner.title" placeholder="Título">

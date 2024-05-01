@@ -9,7 +9,12 @@
           </div>
         </template>
         <template #body>
-          Inserir porcentagem
+          <div v-if="card.title === 'Total de Posts'">
+            Total {{ computePostPercentage('Total de Posts') }}%
+          </div>
+          <div v-else>
+            {{ computePostPercentage(card.title) }}%
+          </div>
         </template>
       </card>
     </div>
@@ -110,6 +115,13 @@ export default {
           status: 'Standby',
           category: 'Saude',
         },
+        {
+          id: 4,
+          title: 'Carreira Devs',
+          subtitle: 'Saíba por onde começar',
+          status: 'Active',
+          category: 'Tecnologia',
+        },
       ]
     };
   },
@@ -126,6 +138,12 @@ export default {
       } else {
         return 0;
       }
+    },
+    computePostPercentage(title) {
+      const postCount = this.computePostCount(title);
+      const totalCount = this.computePostCount('Total de Posts');
+      if (totalCount === 0) return 0;
+      return ((postCount / totalCount) * 100).toFixed(2);
     },
     editPost(id) {
       const selectedPost = this.posts.find(post => post.id === id);

@@ -21,7 +21,46 @@
     </div>
   </div>
 
+  <!-- <div class="mx-auto mt-10 flex">
+    <div class="flex justify-between mt-2">
+      <router-link class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600" to="#">Adicionar novo
+        banner</router-link>
+    </div>
+  </div> -->
 
+  <!-- Modal para adicionar novo banner -->
+  <div v-if="isModalOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white p-6 rounded-lg">
+      <h2 class="text-lg font-semibold mb-4">Adicionar Novo Banner</h2>
+      <input v-model="newBanner.title" type="text" placeholder="Título" class="mb-2 w-full p-2 border rounded">
+      <!-- Imagem da Internet -->
+      <!-- <input v-model="newBanner.imageSrc" type="text" placeholder="URL da Imagem"
+        class="mb-2 w-full p-2 border rounded"> -->
+      <!-- Exibição da imagem -->
+      <img v-if="newBanner.imageSrc" :src="newBanner.imageSrc" alt="Imagem do Banner" class="mb-2 w-full">
+      <!-- Imagens do PC -->
+      <input type="file" @change="handleFileInputChange" class="mb-2 w-full p-2 border rounded">
+      <select v-model="newBanner.status" class="mb-2 w-full p-2 border rounded">
+        <option value="Active">Ativo</option>
+        <option value="Inactive">Inativo</option>
+      </select>
+      <div class="flex justify-end">
+        <button @click="saveNewBanner"
+          class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Salvar</button>
+        <button @click="closeModal" class="px-4 py-2 ml-2 border rounded hover:bg-gray-200">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão para abrir modal -->
+  <div class="mx-auto mt-10 flex">
+    <div class="flex justify-between mt-2">
+      <button @click="openModal" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Adicionar novo
+        banner</button>
+    </div>
+  </div>
+
+  <!-- Todos os banners -->
   <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
     <div v-for="banner in banners" :key="banner.id" class="m-2">
       <div class="group relative rounded-lg overflow-hidden border border-gray-200 hover:border-gray-400 shadow-md">
@@ -60,6 +99,13 @@ export default {
   },
   data() {
     return {
+      isModalOpen: false,
+      newBanner: {
+        title: '',
+        imageSrc: null,
+        imageFile: null,
+        status: 'Active'
+      },
       cards: [
         {
           id: 1,
@@ -113,12 +159,6 @@ export default {
           title: "Tecnologia",
           imageSrc: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGVjbm9sb2d5fGVufDB8fDB8fHww",
           status: "Active"
-        },
-        {
-          id: 6,
-          title: "Estilo de vida",
-          imageSrc: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YmlrZXxlbnwwfHwwfHx8MA%3D%3D",
-          status: "Active"
         }
       ]
     };
@@ -139,6 +179,40 @@ export default {
       // Definir o banner selecionado com base no ID passado
       const selectedBanner = this.banners.find(banner => banner.id === id);
       this.$router.push({ name: 'BannerEdit', params: { id }, state: { banner: selectedBanner } });
+    },
+    openModal() {
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+    },
+    handleFileInputChange(event) {
+      const file = event.target.files[0];
+      this.newBanner.imageFile = file;
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.newBanner.imageSrc = reader.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    saveNewBanner() {
+      if (!this.newBanner.title || !this.newBanner.imageSrc) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+      this.banners.push({
+        id: this.banners.length + 1,
+        title: this.newBanner.title,
+        imageSrc: this.newBanner.imageSrc,
+        status: this.newBanner.status
+      });
+
+      // Limpe os campos e feche o modal
+      this.newBanner.title = '';
+      this.newBanner.imageSrc = null;
+      this.newBanner.imageFile = null;
+      this.newBanner.status = 'Active';
+      this.isModalOpen = false;
     }
   }
 };

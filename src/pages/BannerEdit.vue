@@ -1,16 +1,17 @@
 <template>
   <div class="mx-auto mt-5">
     <div v-if="selectedBanner" class="m-2">
-      <div class="group relative rounded-lg overflow-hidden border border-gray-200 hover:border-gray-400 shadow-md">
+      <div class="group relative rounded-lg overflow-hidden border border-gray-200 hover:border-gray-400 shadow-md"
+        @click="openFileInput">
+        <input type="file" @change="handleFileInputChange" class="hidden" ref="imageInput">
         <label for="bannerImage" class="block w-full h-64 cursor-pointer">
           <img :src="selectedBanner.imageSrc"
             class="block w-full h-64 object-cover transition duration-300 transform group-hover:scale-105"
             alt="Banner Image">
-          <input type="file" id="bannerImage" ref="imageInput"
-            class="hidden absolute top-0 left-0 w-full h-full opacity-0" />
         </label>
         <div
           class="flex absolute inset-0 flex flex-col justify-end p-4 bg-gray-900 bg-opacity-70 text-white transition duration-300 opacity-0 group-hover:opacity-100">
+          <h1 class="text-lg font-bold">Clique para trocar de imagem</h1>
           <h1 class="text-lg font-bold">{{ selectedBanner.title }}</h1>
           <span class="w-max px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
             v-if="selectedBanner.status === 'Active'">{{ selectedBanner.status }}</span>
@@ -33,6 +34,9 @@
           <option value="Active">Ativo</option>
           <option value="Inactive">Inativo</option>
         </select>
+      </div>
+      <div class="flex justify-end">
+        <button @click="saveBanner" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Salvar</button>
       </div>
     </div>
     <div v-else>
@@ -83,16 +87,46 @@ export default {
           status: "Active"
         }
       ],
-      selectedBannerId: 0
+      selectedBannerId: 0,
+      newImageFile: null
     }
   },
   created() {
-    // Extrair o ID do parâmetro de rota
     this.selectedBannerId = parseInt(this.$route.params.id);
   },
   computed: {
     selectedBanner() {
       return this.bannerData.find(banner => banner.id === this.selectedBannerId);
+    }
+  },
+  methods: {
+    openFileInput() {
+      this.$refs.imageInput.click();
+    },
+    handleFileInputChange(event) {
+      this.newImageFile = event.target.files[0];
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.selectedBanner.imageSrc = reader.result;
+      };
+      reader.readAsDataURL(this.newImageFile);
+    },
+    saveBanner() {
+      if (!this.selectedBanner) {
+        console.error('Nenhum banner selecionado.');
+        return;
+      }
+
+      // Atualizar a imagem do banner se uma nova imagem foi selecionada
+      if (this.newImageFile) {
+        // Lógica para salvar a nova imagem (pode ser uma chamada a uma API ou armazenamento local)
+        console.log('Nova imagem salva:', this.newImageFile);
+        this.newImageFile = null; // Limpar a nova imagem após salvar
+      }
+
+      // Redirecionar para a página de banners após salvar
+      this.$router.push('/banners');
     }
   }
 }
